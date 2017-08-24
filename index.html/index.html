@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>The Psychic Game</title>
+    <link rel="stylesheet" href="../assets/css/reset/reset.css">
+    <link rel="stylesheet" href="../assets/css/style/style.css">
+
+
+</head>
+
+<body>
+    <div id="game">
+        <h1>The Psychic Game</h1>
+        <div>Guess what letter I'm thinking of!<div id="computerGuess"> </div> </div>
+        <div>User Guess <div id="userGuess"</div>
+        <div>Wins:<div id="wins"> </div> </div>
+        <div> Losses: <div id="losses"></div>
+        <div> Guesses Left: <div id="guessesLeft"></div>
+        <div>Your Guesses so far: <div id="guessesSoFar"></div>
+    </div>
+<script type="text/javascript">
+    var wins = 0;
+    var losses = 0;
+    var guessesLeft = 9;
+    var guessesSoFar = []; 
+    var computerChoices = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']; 
+
+
+    document.getElementByid('wins').innerHTML=wins;
+    document.getElementByid('losses').innerHTML=losses;
+    document.getElementByid('guessesLeft').innerHTML=guessesLeft;
+    var computerGuess = computerChoices[Math.floor(Math.random()*computerChoices.length)]; 
+    document.getElementByid('computerGuess').innerHTML=computerGuess;
+
+    
+    document.onkeyup = function(event) {
+        var userGuess = event.key; 
+            if (computerChoices.indexOf(userGuess) > -1){
+            var userGuessp = document.getElementByid('userGuess').innerHTML=userGuess;
+
+        if (userGuess === computerGuess) {
+            wins++;
+            alert('Way to go! You\'ve guesesed corrrectly. You Won!');
+        }
+        else if (userGuess !== computerGuess){
+            guessesLeft--;
+            guessesSoFar.push(userGuess);
+            document.getElementByid('guessesSoFar').innerHTML=guessesSoFar;
+            if(guesses ===0)
+            losses++;
+            alert('You didn\'t guess the correct letter. You lost. Let\'s try again.');
+        }}
+/*         }   
+        var html = "<h1>The Psychic Game</h1>" + 
+        "<p>Guess what letter I'm thinking of!</p>" +
+        "<p>Total Wins: " + 
+        wins + 
+    document.getElementByid('wins').innerHTML=wins;
+        "</p>" +
+        "<p>Total Losses: " + 
+        losses + 
+        "</p>" +
+        "<p>Guesses Left: " + 
+        guessesLeft + 
+        "</p>" +
+        "<p>Your Guesses so far: " +
+        guessesSoFar +
+        "</p>"
+        ;
+        
+        document.querySelector('#game').innerHTML = html;*/
+    }
+</script>
+</body>
+</html>
+
