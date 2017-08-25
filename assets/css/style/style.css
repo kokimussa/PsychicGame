@@ -12,13 +12,14 @@ body {
 
 
     <div id="game">
-        <h1>The Psychic Game</h1>
-        <p>Guess what letter I'm thinking of!</p>
-        <p>Total Wins: </p>
-        <p>Total Losses: </p>
-        <p>Guesses Left: </p>
-        <p>Your Guesses so far: </p>
-    </div>
+        
+        <div>Guess what letter I'm thinking of!</div>
+        <div>User Guess </div>
+        <div>Wins:</div>
+        <div> Losses: </div>
+        <div> Guesses Left: </div>
+        <div>Your Guesses so far:</div>
+
 
 h1, p {
 	margin-bottom: 20px;
